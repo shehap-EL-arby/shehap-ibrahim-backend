@@ -1,14 +1,20 @@
 {
     "private": true,
+    "directories": {
+        "homepage":"http://shehap-EL-arby.github.io/api_student"
+    },
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
         "watch": "mix watch",
+        "predeploy":" npm run build",
+        "deploy":"gh-pages -d build",
         "watch-poll": "mix watch --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production",
-        "build": "npm install && npm run production"
+        "build": "npm install && npm run production",
+        "production": "mix --production"
+        
     },
     "engines": {
         "node": "14.4.0"
@@ -21,5 +27,8 @@
         "sass": "^1.79.3",
         "sass-loader": "^12.1.0",
         "vite": "^4.0.0"
+    },
+    "dependencies": {
+        "gh-pages": "^6.1.1"
     }
 }
