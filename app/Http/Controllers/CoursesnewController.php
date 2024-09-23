@@ -18,6 +18,11 @@ class CoursesnewController extends Controller
             return Response()->json(["data" => "there is on data" , "status" => Response::HTTP_NO_CONTENT ],Response::HTTP_OK);
         }
         else{
+             // تعديل مسار الصورة لكل عنصر في البيانات
+    $data->transform(function($item) {
+        $item->image = url($item->image); // تضمين المسار الكامل للصورة
+        return $item;
+    });
             return Response()->json(["data" => $data , "status" => Response::HTTP_OK ],Response::HTTP_OK);
         }
     }

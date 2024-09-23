@@ -15,6 +15,10 @@ class BooksnewController extends Controller
             return Response()->json(["data" => "there is on data" , "status" => Response::HTTP_NO_CONTENT ],Response::HTTP_OK);
         }
         else{
+            $data->transform(function($item) {
+                $item->image = url($item->image); // تضمين المسار الكامل للصورة
+                return $item;
+            });
             return Response()->json(["data" => $data , "status" => Response::HTTP_OK ],Response::HTTP_OK);
         }
     }
